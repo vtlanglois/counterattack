@@ -7,9 +7,11 @@ public class Gun : MonoBehaviour
 
 
     [SerializeField] public float bulletForce = 1f;
+    [SerializeField] public float meleeForce = 5f;
     [SerializeField] public GameObject bulletPrefab;
+    [SerializeField] public GameObject meleePrefab;
     [SerializeField] GameObject player;
-    [SerializeField] int shots;
+    [SerializeField] int shots = 6;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,9 @@ public class Gun : MonoBehaviour
         {
             Shoot();
             shots--;
+        } else if (Input.GetButtonDown("Fire2"))
+        {
+            Melee();
         }
 
     }
@@ -35,6 +40,13 @@ public class Gun : MonoBehaviour
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(transform.up * bulletForce, ForceMode2D.Impulse);
 
+    }
+
+    void Melee()
+    {
+        GameObject melee = Instantiate(meleePrefab, transform.position, transform.rotation);
+        Rigidbody2D rb = melee.GetComponent<Rigidbody2D>();
+        rb.AddForce(transform.up * meleeForce, ForceMode2D.Impulse);
     }
 
 
