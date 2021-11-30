@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Turret : MonoBehaviour
 {
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] float bulletForce = 15f;
-    [SerializeField] float fireTimer = 2f;
+    [SerializeField] float fireTimer = 6f;
     float currentTimer = 0;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Move());
         StartCoroutine(Shoot());
     }
 
@@ -33,18 +32,17 @@ public class Enemy : MonoBehaviour
     IEnumerator Shoot()
     {
         yield return new WaitForSeconds(fireTimer);
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(transform.up * bulletForce, ForceMode2D.Impulse);
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(transform.up * bulletForce, ForceMode2D.Impulse);
+            yield return new WaitForSeconds(0.12f);
+
+        }
         StartCoroutine(Shoot());
     }
 
-    IEnumerator Move()
-    {
-        yield return new WaitForSeconds(fireTimer-0.5f);
-        gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * 2, ForceMode2D.Impulse);
-        StartCoroutine(Move());
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -54,3 +52,4 @@ public class Enemy : MonoBehaviour
         }
     }
 }
+
