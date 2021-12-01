@@ -95,3 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190ec031ccf2fbf44b565859458b54a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 5624123045213500933, guid: ec7292ffa69a78745b14491c5f7123e1, type: 3}
+  - {fileID: 5624123045213500933, guid: ec7292ffa69a78745b14491c5f7123e1, type: 3}
+  - {fileID: 5624123045213500933, guid: ec7292ffa69a78745b14491c5f7123e1, type: 3}
+  - {fileID: 1226250170424713788, guid: 6fd29aa36235b11479108df959c83af9, type: 3}
+  spawnTime: 1

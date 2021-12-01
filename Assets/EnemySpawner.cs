@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private float spawnRadius = 7, time = 1.5f;
-    [SerializeField] public GameObject[] enemies;
-    [SerializeField] public int enemyNumber = 1;
+    [SerializeField] private float time = 1.5f;
+    [SerializeField] private int numberOfEnemies = 3;
+    [SerializeField] public GameObject spawn;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,10 +15,14 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemy()
     {
-            Vector2 spawnPosition = GameObject.Find("Player").transform.position;
-            spawnPosition += Random.insideUnitCircle.normalized * spawnRadius;
-            Instantiate(enemies[Random.Range(0, enemies.Length)], spawnPosition, Quaternion.identity);
-            yield return new WaitForSeconds(time);
-            StartCoroutine(SpawnEnemy());
+        yield return new WaitForSeconds(time);
+        for (int i = 0; i < numberOfEnemies; i++)
+        {
+            Vector2 spawnPosition = new Vector2(Random.Range(-20f, 20f), Random.Range(-12f, 12f));
+            Instantiate(spawn, spawnPosition, Quaternion.identity);
+            yield return new WaitForSeconds(0.12f);
+        }
+        numberOfEnemies += 2;
+        StartCoroutine(SpawnEnemy());
     }
 }
