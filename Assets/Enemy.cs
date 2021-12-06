@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
     IEnumerator Shoot()
     {
         yield return new WaitForSeconds(fireTimer);
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation * Quaternion.EulerAngles(0,0,90));
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation );
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(transform.up * bulletForce, ForceMode2D.Impulse);
         StartCoroutine(Shoot());
