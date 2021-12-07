@@ -15,7 +15,6 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemy()
     {
-        yield return new WaitForSeconds(time);
         for (int i = 0; i < numberOfEnemies; i++)
         {
             Vector2 spawnPosition = new Vector2(Random.Range(-20f, 20f), Random.Range(-12f, 12f));
@@ -23,6 +22,7 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(0.12f);
         }
         numberOfEnemies += 2;
+        yield return new WaitForSeconds(time);
         StartCoroutine(SpawnEnemy());
     }
 }

@@ -50,6 +50,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.layer == 7 || collision.gameObject.layer == 8)
         {
+            GameObject.Find("Gun").GetComponent<Gun>().shots++;
             Destroy(gameObject);
         }
     }

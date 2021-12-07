@@ -18,8 +18,9 @@ public class Explosion : MonoBehaviour
 
     IEnumerator Explode()
     {
-        yield return new WaitForSeconds(0.33f);
+        yield return new WaitForSeconds(0.12f);
         gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 255);
+        yield return new WaitForSeconds(0.12f);
         Destroy(gameObject);
     }
 }

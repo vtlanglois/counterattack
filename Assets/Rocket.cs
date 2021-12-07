@@ -26,8 +26,8 @@ public class Rocket : MonoBehaviour
 
     IEnumerator Acceleration()
     {
-        yield return new WaitForSeconds(0.25f);
-        gameObject.GetComponent<Rigidbody2D>().velocity *= 2f;
+        yield return new WaitForSeconds(0.02f);
+        gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * 2, ForceMode2D.Impulse);
         StartCoroutine(Acceleration());
     }
 }

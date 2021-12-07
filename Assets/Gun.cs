@@ -11,7 +11,7 @@ public class Gun : MonoBehaviour
     [SerializeField] public GameObject bulletPrefab;
     [SerializeField] public GameObject meleePrefab;
     [SerializeField] GameObject player;
-    [SerializeField] int shots = 6;
+    [SerializeField] public int shots = 6;
     // Start is called before the first frame update
     void Start()
     {
