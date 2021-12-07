@@ -38,7 +38,7 @@ public class Melee : MonoBehaviour
         {
             GameObject bullet = Instantiate(bulletPrefab, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
             Destroy(collision.gameObject);
-            bullet.GetComponent<Rigidbody2D>().velocity = this.GetComponent<Rigidbody2D>().velocity * 2;
+            bullet.GetComponent<Rigidbody2D>().velocity = this.GetComponent<Rigidbody2D>().velocity * 4;
         } else if (collision.gameObject.layer == 10)
         {
             Debug.Log("Add event to increase bullets");

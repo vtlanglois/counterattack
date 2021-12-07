@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 7 || collision.gameObject.layer == 8)
+        if (collision.gameObject.layer == 7 || collision.gameObject.layer == 8 || collision.gameObject.layer == 12)
         {
             GameObject.Find("Gun").GetComponent<Gun>().shots++;
             Destroy(gameObject);

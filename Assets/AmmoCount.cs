@@ -31,5 +31,8 @@ public class AmmoCount : MonoBehaviour
             
             ammo.text = "EMPTY!";
         }
+
+        int health = GameObject.Find("Player").GetComponent<Player>().health;
+        ammo.text += "\n" + "Health = " + health.ToString();
     }
 }
