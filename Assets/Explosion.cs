@@ -18,6 +18,8 @@ public class Explosion : MonoBehaviour
 
     IEnumerator Explode()
     {
+
+        GameObject.Find("Main Camera").GetComponent<ShakeBehavior>().TriggerShake();
         yield return new WaitForSeconds(0.12f);
         gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 255);
         yield return new WaitForSeconds(0.12f);

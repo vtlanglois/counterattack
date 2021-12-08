@@ -26,6 +26,7 @@ public class Gun : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && shots > 0)
         {
             Shoot();
+            GameObject.Find("Main Camera").GetComponent<ShakeBehavior>().TriggerShake();
             shots--;
         } else if (Input.GetButtonDown("Fire2"))
         {
