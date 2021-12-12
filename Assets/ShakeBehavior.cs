@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ShakeBehavior : MonoBehaviour
 {
+
+    //FROM https://medium.com/nice-things-ios-android-development/basic-2d-screen-shake-in-unity-9c27b56b516
     // Transform of the GameObject you want to shake
     private Transform transform;
 
